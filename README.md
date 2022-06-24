@@ -1,16 +1,14 @@
-# realtimetransitdemoakkaserverless
+# real time transit demo Kalix
 
 ## Designing
 
 While designing your service it is useful to read [designing services](https://docs.kalix.io/services/development-process.html)
-
 
 ## Developing
 
 This project has a bare-bones skeleton service ready to go, but in order to adapt and
 extend it it may be useful to read up on [developing services](https://docs.kalix.io/services/)
 and in particular the [Java section](https://docs.kalix.io/java/index.html)
-
 
 ## Building
 
@@ -20,7 +18,6 @@ generating code based on the `.proto` definitions:
 ```shell
 mvn compile
 ```
-
 
 ## Running Locally
 
@@ -48,7 +45,7 @@ The command handler for `GetCurrentCounter` is not implemented, yet
 For example, using [`grpcurl`](https://github.com/fullstorydev/grpcurl):
 
 ```shell
-> grpcurl -plaintext -d '{"counterId": "foo"}' localhost:9000 test.CounterService/GetCurrentCounter 
+> grpcurl -plaintext -d '{"counterId": "foo"}' localhost:9000 test.CounterService/GetCurrentCounter
 ERROR:
   Code: Unknown
   Message: The command handler for `GetCurrentCounter` is not implemented, yet
@@ -56,7 +53,6 @@ ERROR:
 
 > Note: The failure is to be expected if you have not yet provided an implementation of `GetCurrentCounter` in
 > your entity.
-
 
 ## Deploying
 
