@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package com.example.domain;
+
+option java_outer_classname = "VehiclePositionDomain";
+
+message VehiclePositionState {
+  string entity_id = 1;
+  float bearing = 2;
+  float latitude = 3;
+  float longitude = 4;
+  float odometer = 5;
+  float speed = 6;
+}

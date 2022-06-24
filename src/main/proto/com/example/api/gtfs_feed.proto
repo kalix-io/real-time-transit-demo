@@ -1,0 +1,17 @@
+syntax = "proto3";
+package com.example.api;
+
+import "kalix/annotations.proto";
+import "google/api/annotations.proto";
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/empty.proto";
+
+option java_outer_classname = "GtfsFeedApi";
+
+service GtfsFeed {
+  option (kalix.codegen) = {
+    action: {}
+  };
+
+  rpc GetGtfsFeed(google.protobuf.Empty) returns (google.protobuf.BytesValue);
+}

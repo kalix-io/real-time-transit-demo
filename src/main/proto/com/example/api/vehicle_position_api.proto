@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package com.example.api;
+
+option java_outer_classname = "VehiclePositionApi";
+
+import "google/protobuf/empty.proto";
+import "kalix/annotations.proto";
+import "google/api/annotations.proto";
+
+message VehiclePosition {
+  float bearing = 1;
+  float latitude = 2;
+  float longitude = 3;
+  float odometer = 4;
+  float speed = 5;
+}
+
+service VehiclePositionService {
+  option (kalix.codegen) = {
+    value_entity: {
+      name: "com.example.domain.VehiclePosition"
+      entity_type: "vehicle_positions"
+      state: "com.example.domain.VehiclePositionState"
+    }
+  };
+
+  rpc AddPosition(VehiclePosition) returns (google.protobuf.Empty) {
+    option (kalix.method).entity.key_generator = VERSION_4_UUID;
+    option (google.api.http) = {
+      post: "/position",
+      body: "*"
+    };
+  }
+}

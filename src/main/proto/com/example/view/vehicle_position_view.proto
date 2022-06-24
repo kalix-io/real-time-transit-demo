@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package com.example.view;
+
+option java_outer_classname = "VehiclePositionView";
+
+import "com/example/domain/vehicle_position_domain.proto";
+import "kalix/annotations.proto";
+import "google/protobuf/empty.proto";
+
+service AllVehiclePositions {
+  option (kalix.codegen) = {
+    view: {}
+  };
+
+  rpc UpdateVehiclePosition(com.example.domain.VehiclePositionState) returns (com.example.domain.VehiclePositionState) {
+    option (kalix.method).eventing.in = {
+      value_entity: "vehicle_positions"
+    };
+    option (kalix.method).view.update = {
+      table: "vehicle_positions"
+    };
+  }
+
+  rpc GetAllVehiclePositions(google.protobuf.Empty) returns (stream com.example.domain.VehiclePositionState) {
+    option (kalix.method).view.query = {
+      query: "SELECT * FROM vehicle_positions"
+    };
+  }
+}
