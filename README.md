@@ -1,4 +1,4 @@
-# real time transit demo Kalix
+# Real Time Transit Demo - Kalix
 
 ## Designing
 
