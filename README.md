@@ -1,5 +1,7 @@
 # Real Time Transit Demo - Kalix
 
+This repo contains code for the following [Kalix Blog Post](https://www.kalix.io/blog/real-time-traffic-monitoring-with-kalix)
+
 ## Designing
 
 While designing your service it is useful to read [designing services](https://docs.kalix.io/services/development-process.html)
